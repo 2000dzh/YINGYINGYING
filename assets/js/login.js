@@ -2,8 +2,6 @@ $(function () {
     $(".layui-form .link").on('click', 'a', function () {
         $(this).parents(".submit-box").hide().siblings(".submit-box").show()
     })
-
-
     //表单验证规则
     let form = layui.form
     let later = layui.layer
@@ -43,6 +41,7 @@ $(function () {
             data: $(this).serialize(),
             success: function (res) {
                 if (res.code !== 0) return later.msg(res.message)
+                console.log(res);
                 later.msg(res.message)
 
                 localStorage.setItem('token', res.token);

@@ -12,23 +12,26 @@ $(function () {
             layer.close(index);
         });
     })
+
+  
 })
 function getUserInfo() {
     $.ajax({
         method: 'GET',
         url: '/my/userinfo',
-        //headers 就是请求头配置对象
+        // headers 就是请求头配置对象
         // headers: {
         //     Authorization: localStorage.getItem("token") || ''
         // },
         success: function (res) {
-            console.log(res);
-            if (res.code !== 0) return layui.layer.msg(res.message)
-
-
+            // console.log(res);
+            if (res.code !== 0) return layui.layer.msg('获取用户信息失败')
 
             renderAvatar(res.data)
-        }
+        },
+        // complete: function (res) {
+        //     console.log(res);
+        // }
     })
 }
 
